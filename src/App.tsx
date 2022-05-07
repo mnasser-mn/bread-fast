@@ -1,28 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import {Button} from '@mui/material'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './components/home';
+import { NotFound } from './components/not-found';
+import { PostDetails } from './components/post-details';
 
-function App() {
+function AppRouter() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button>Text</Button>
-      </header>
-    </div>
+   <BrowserRouter>
+    <Routes>
+      <Route path='/posts/:id' element={<PostDetails/>}/>
+      <Route path='/posts' element={<Home/>} />
+      <Route path='/' element={<Home/>} />
+      <Route path='*' element={<NotFound/>}/>
+    </Routes>
+   </BrowserRouter>
   );
 }
 
-export default App;
+export default AppRouter;
