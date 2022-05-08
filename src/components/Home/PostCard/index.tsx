@@ -1,5 +1,5 @@
 import { useNavigate} from "react-router-dom"
-import { PostType } from "../../redux-setup/types"
+import { PostType } from "../../../redux-setup/types"
 import './index.scss'
 type PostCardPropsType = {
     post:PostType

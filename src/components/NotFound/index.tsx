@@ -3,7 +3,7 @@ import './index.scss';
 export const NotFound = ()=>{
     return <div className='container'>
         <h1>404</h1>
-        <h3>Sorry, Page Not Found!</h3>
+        <h3>Sorry, page not found!</h3>
         <p className="message">
             {`You can navigate to `}
             <Link to="/posts">

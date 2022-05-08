@@ -1,7 +1,8 @@
 import { AnyAction } from "redux";
-import { StateType } from "../types"
 
-export const postsReducer = (state:StateType = {post:{list:[]}} ,action:AnyAction)=>{
+
+export const postsReducer = (state:any  ,action:AnyAction)=>{
+    console.log(state)
     switch (action.type){
         case 'POST_LIST':{
             return {...state,list:action.payload}
@@ -9,8 +10,14 @@ export const postsReducer = (state:StateType = {post:{list:[]}} ,action:AnyActio
         case 'POST_DETAILS':{
             return {...state,details:action.payload}
         }
+        case 'EDIT_POST':{
+            return {...state,message:action.payload}
+        }
+        case 'CLEAR_DETAILS':{
+            return {...state,message:'',details:{}}
+        }
         default: {
-            return state;
+            return state||{list:[]};
         }
     } 
    

@@ -1,0 +1,76 @@
+@import '../../mixins.scss';
+
+.details-container {
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid black;
+        margin: 20px;
+        display: flex;
+        justify-content: space-between;
+        span:first-child{
+            cursor: pointer;
+        }
+    }
+
+    form {
+
+        .form-group {
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px ;
+            display: flex;
+            justify-content: space-between;
+            label {
+                width: 40%;
+                font-weight: bold;
+                align-self: center;
+            }
+
+            input,
+            textarea {
+                flex-grow: 1;
+                width: 50%;
+                max-width: 400px;
+                padding: 5px;
+                outline: none;
+                border-radius: 5px;
+                border:1px solid black
+
+            }
+
+            textarea {
+                overflow: none;
+                height: 60px;
+                resize: none;
+            }
+
+            textarea::-webkit-scrollbar {
+                display: none;
+            }
+
+            button {
+                @include btn;
+                margin:auto;
+                font-size: 16px;
+                width: 4em;
+                transition: 0.25s;
+               
+            }
+            button.save{
+                background-color: rgb(23, 152, 23);
+                color: white;
+
+            }
+        }
+        .form-group>.invalid{
+            border-color: red !important;
+        }
+        .form-group>*:focus{
+            border:2px solid black
+        }
+        .form-group>*:disabled{
+            background-color: lightgrey;
+            border:1px solid grey;
+        }
+    }
+}

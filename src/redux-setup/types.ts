@@ -8,6 +8,7 @@ export type PostType = {
 export type StateType = {
     post:{
         list?:PostType[];
-        details?:PostType
+        details?:PostType;
+        message?:string
     };
 }|undefined

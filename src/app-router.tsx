@@ -3,7 +3,7 @@ import './App.scss';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { NotFound } from './components/NotFound';
-import { PostDetails } from './components/post-details';
+import { PostDetails } from './components/PostDetails';
 
 function AppRouter() {
   return (

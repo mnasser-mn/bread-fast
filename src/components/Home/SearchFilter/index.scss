@@ -1,4 +1,4 @@
-@import '../../mixins.scss';
+@import '../../../mixins.scss';
 .search-container{
     width: 90%;
     margin: 10px auto;
@@ -9,9 +9,21 @@
         width: 60%;
         margin: 20px 0;
         font-size: 1.1rem;
-        border-radius: 5px;
         padding-left: 0.25rem;
-        border: 2px solid grey;
+        border:none;
+        width: 40%;
+        box-shadow: 3px 3px 3px grey;
+        outline: none;
+        transition: 0.1s;
+        border:2px solid black;
+        
+        
+    }
+    [type=text]:focus{
+        box-shadow: none;
+        width: 70%;
+        padding: 5px
+
     }
     button{
         @include btn;
