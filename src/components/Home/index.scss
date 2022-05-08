@@ -1,0 +1,19 @@
+.home-container{
+    .no-items{
+        color:red;
+        margin:20px;
+    }
+
+    .sticky{
+        position: sticky;
+        top:0;
+        background-color: white;
+    }
+   
+    h2{
+        text-align: center;
+
+        border-bottom: 2px solid black;
+        margin:0 50px;
+    }
+}

@@ -1,21 +1,18 @@
-import React from 'react';
-import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from './components/home';
-import { NotFound } from './components/not-found';
-import { PostDetails } from './components/post-details';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 
-function AppRouter() {
-  return (
-   <BrowserRouter>
-    <Routes>
-      <Route path='/posts/:id' element={<PostDetails/>}/>
-      <Route path='/posts' element={<Home/>} />
-      <Route path='/' element={<Home/>} />
-      <Route path='*' element={<NotFound/>}/>
-    </Routes>
-   </BrowserRouter>
-  );
-}
+import AppRouter from './app-router';
+import { postsReducer } from './redux-setup/reducers/posts-reducer';
+const store = configureStore({
+    reducer:{
+        post:postsReducer
+    },
+})
+export const App = ()=>(
+   
+    <Provider store={store}>
+        <AppRouter/>
+    </Provider>
+)
 
-export default AppRouter;
+export default App;

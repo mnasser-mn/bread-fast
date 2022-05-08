@@ -1,0 +1,36 @@
+@import '../../mixins.scss';
+.card,
+.card * {
+    transition: 0.25s all;
+}
+
+.card {
+    margin: 20px auto;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    background-color: #EFEFEF;
+
+    .card-title {
+        cursor: pointer;
+        text-transform: capitalize;
+        color: #112B3C;
+    }
+
+    .card-actions {
+        display: flex;
+        justify-content: flex-start;
+
+        button {
+           @include btn;
+        }
+
+        button:active {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.card:hover {
+    box-shadow: 3px 3px 5px grey;
+}
