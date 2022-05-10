@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bread-fast/static/css/main.e8cb98e1.css",
+    "main.js": "/bread-fast/static/js/main.15d2509b.js",
+    "static/js/787.37d7c2cd.chunk.js": "/bread-fast/static/js/787.37d7c2cd.chunk.js",
+    "static/media/sad.png": "/bread-fast/static/media/sad.a4ec0a39a06d014842fd.png",
+    "index.html": "/bread-fast/index.html",
+    "main.e8cb98e1.css.map": "/bread-fast/static/css/main.e8cb98e1.css.map",
+    "main.15d2509b.js.map": "/bread-fast/static/js/main.15d2509b.js.map",
+    "787.37d7c2cd.chunk.js.map": "/bread-fast/static/js/787.37d7c2cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8cb98e1.css",
+    "static/js/main.15d2509b.js"
+  ]
+}
