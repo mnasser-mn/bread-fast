@@ -36,7 +36,7 @@ export const PostDetails = ({ postId }: any) => {
   useEffect(() => {
     if (!(id && Number(id))) {
       if (postId) getPostDetails(Number(id || postId))(dispatch);
-      else navigate("/posts");
+      else navigate(`${process.env.PUBLIC_URL}/posts`);
     } else {
       getPostDetails(Number(id || postId))(dispatch);
     }
@@ -52,7 +52,7 @@ export const PostDetails = ({ postId }: any) => {
         {!postId ? (
           <span
             onClick={() => {
-              navigate("/posts");
+              navigate(`${process.env.PUBLIC_URL}/posts`);
             }}
           >
             Home

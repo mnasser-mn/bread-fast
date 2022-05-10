@@ -6,7 +6,7 @@ export const NotFound = ()=>{
         <h3>Sorry, page not found!</h3>
         <p className="message">
             {`You can navigate to `}
-            <Link to="/posts">
+            <Link to={`${process.env.PUBLIC_URL}/posts`}>
              home
             </Link>
         </p>

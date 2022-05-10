@@ -9,10 +9,10 @@ function AppRouter() {
   return (
    <BrowserRouter>
     <Routes>
-      <Route path='/posts/:id' element={<PostDetails/>}/>
-      <Route path='/posts' element={<Home/>} />
-      <Route path='/' element={ <Navigate to={'/posts'} />} />
-      <Route path='*' element={<NotFound/>}/>
+      <Route path={`${process.env.PUBLIC_URL}/posts/:id`} element={<PostDetails/>}/>
+      <Route path={`${process.env.PUBLIC_URL}/posts`} element={<Home/>} />
+      <Route path={`${process.env.PUBLIC_URL}/`} element={ <Navigate to={`${process.env.PUBLIC_URL}/posts`} />} />
+      <Route path={`${process.env.PUBLIC_URL}/*`} element={<NotFound/>}/>
     </Routes>
    </BrowserRouter>
   );
