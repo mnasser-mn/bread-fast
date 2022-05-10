@@ -1,5 +1,5 @@
 @import '../../mixins.scss';
-
+@import '../../index.scss';
 .details-container {
     h2 {
         text-align: center;
@@ -57,7 +57,7 @@
                
             }
             button.save{
-                background-color: rgb(23, 152, 23);
+                background-color: $dark-green;
                 color: white;
 
             }

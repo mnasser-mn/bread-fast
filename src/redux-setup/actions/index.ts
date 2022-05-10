@@ -42,10 +42,27 @@ export const getPostDetails = (id: number) => {
 export const patchPost = (post: PostType) => {
   return async (dispatch: any) => {
     const response = await axios.patch(`${baseURL}/${post.id}`, { ...post });
-    console.log(response)
+    console.log(response);
     if (response.status === 200) {
       dispatch({ type: "EDIT_POST", payload: "Post Updated successfully!" });
+    } else dispatch({ type: "EDIT_POST", payload: "Error, please try again!" });
+  };
+};
+
+export const deletePost = (id: number) => {
+  return async (dispatch: any) => {
+    const response = await axios.delete(`${baseURL}/${id}`);
+    if (response.status === 200) {
+      dispatch({
+        type: "DELETE_POST",
+        payload: { message: "Post deleted successfully!", postId: id },
+      });
     } else
-      dispatch({ type: "EDIT_POST", payload: "Error, please try again!" });
+      dispatch({
+        type: "DELETE_POST",
+        payload: {
+          message: "Error, please try again!",
+        },
+      });
   };
 };

@@ -1,0 +1,31 @@
+@import '../../index.scss';
+@import '../../mixins.scss';
+
+.confirm-dialog{
+    
+    .dialog-title{
+        text-align: center;
+    }
+    p{
+        padding:10px
+    }
+    .dialog-actions{
+        padding:10px;
+        display: flex;
+        justify-content: space-around;
+        button{
+            @include btn;
+            width: 40%;
+            height: 30px;
+        }
+        button:first-child{
+            background-color: $dark-green;
+            color: white;
+        }
+        button:last-child{
+            background-color: $dark-red;
+            color: white;
+        }
+    }
+
+}
