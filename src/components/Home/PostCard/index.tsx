@@ -1,10 +1,11 @@
-import { Dialog, DialogTitle, Snackbar } from "@mui/material";
+import { Dialog} from "@mui/material";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deletePost } from "../../../redux-setup/actions";
-import { PostType, StateType } from "../../../redux-setup/types";
+import { PostType } from "../../../redux-setup/types";
 import { ConfirmDialog } from "../../ConfirmDialog";
+import { PostDetails } from "../../PostDetails";
 import "./index.scss";
 type PostCardPropsType = {
   post: PostType;
@@ -12,6 +13,7 @@ type PostCardPropsType = {
 export const PostCard = ({ post }: PostCardPropsType) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [viewDetailsOpened,setViewDetailsOpened] = useState(false)
   const handleEdit = () => {
     navigate(`${post.id}`);
   };
@@ -33,6 +35,19 @@ export const PostCard = ({ post }: PostCardPropsType) => {
           }}
           onCancel={() => {}}
         />
+        <button onClick={()=>setViewDetailsOpened(true)}>
+            View
+        </button>
+        <Dialog
+        open={viewDetailsOpened}
+        onClose={()=>setViewDetailsOpened(false)}
+          fullWidth={true}
+          maxWidth={"sm"}
+>
+          <PostDetails
+          postId={post.id}
+          />
+        </Dialog>  
       </nav>
      
     </div>

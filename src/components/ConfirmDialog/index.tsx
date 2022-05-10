@@ -1,4 +1,4 @@
-import { ButtonProps, Dialog, DialogTitle } from "@mui/material";
+import { ButtonProps, Dialog } from "@mui/material";
 import { ReactElement, useState,cloneElement } from "react";
 import './index.scss'
 type ConfirmDialogPropsType = {

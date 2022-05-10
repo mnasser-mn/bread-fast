@@ -6,18 +6,19 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getPostDetails, patchPost } from "../../redux-setup/actions";
 import { PostType, StateType } from "../../redux-setup/types";
 import "./index.scss";
-export const PostDetails = () => {
+export const PostDetails = ({ postId }: any) => {
   const { id } = useParams();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const postDetails = useSelector((state: StateType) => state?.post?.details);
   const message = useSelector((state: StateType) => state?.post?.message);
   const [editable, setEditable] = useState(false);
   const handleChange = (e: any) => {
-      dispatch({
-        type: "POST_DETAILS",
-        payload: { ...postDetails, [e.target.name]: e.target.value },
-      });
+    dispatch({
+      type: "POST_DETAILS",
+      payload: { ...postDetails, [e.target.name]: e.target.value },
+    });
   };
   const postHasEmptyFields = () => {
     return Object.keys(postDetails as object).every(
@@ -28,35 +29,38 @@ export const PostDetails = () => {
     if (!editable) {
       setEditable(true);
     } else if (postHasEmptyFields()) {
-       patchPost(postDetails!)(dispatch);
+      patchPost(postDetails!)(dispatch);
       setEditable(false);
     }
   };
   useEffect(() => {
     if (!(id && Number(id))) {
-      navigate("/posts");
+      if (postId) getPostDetails(Number(id || postId))(dispatch);
+      else navigate("/posts");
     } else {
-      getPostDetails(Number(id))(dispatch);
+      getPostDetails(Number(id || postId))(dispatch);
     }
 
     return () => {
       dispatch({ type: "CLEAR_DETAILS" });
     };
-  }, [dispatch, id, navigate]);
+  }, [dispatch, id, postId, navigate]);
 
   return (
     <div className="details-container">
       <h2>
-        <span
-          onClick={() => {
-            navigate("/posts");
-          }}
-        >
-          Home
-        </span>
-        <span>#{id} POST DETAILS</span>
+        {!postId ? (
+          <span
+            onClick={() => {
+              navigate("/posts");
+            }}
+          >
+            Home
+          </span>
+        ) : null}
+        <span>#{id || postId} POST DETAILS</span>
       </h2>
-      {(postDetails?.title)||postDetails?.title === '' ? (
+      {postDetails?.title || postDetails?.title === "" ? (
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -70,7 +74,7 @@ export const PostDetails = () => {
               disabled={!editable}
               value={postDetails?.userId}
               onChange={handleChange}
-              className={!postDetails.userId ?'invalid':''}
+              className={!postDetails.userId ? "invalid" : ""}
             />
           </div>
           <div className="form-group">
@@ -81,8 +85,7 @@ export const PostDetails = () => {
               name="title"
               onChange={handleChange}
               value={postDetails?.title}
-              className={postDetails.title === ''?'invalid':''}
-
+              className={postDetails.title === "" ? "invalid" : ""}
             />
           </div>
           <div className="form-group">
@@ -92,7 +95,7 @@ export const PostDetails = () => {
               disabled={!editable}
               value={postDetails?.body}
               onChange={handleChange}
-              className={postDetails.body === ''?'invalid':''}
+              className={postDetails.body === "" ? "invalid" : ""}
             />
           </div>
           {!editable ? (
