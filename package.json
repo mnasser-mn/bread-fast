@@ -1,6 +1,5 @@
 {
   "name": "bfastapp",
-  "homepage":"https://mnasser-mn.github.io/bread-fast/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
