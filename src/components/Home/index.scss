@@ -1,7 +1,10 @@
 .home-container{
     .no-items{
         color:red;
-        margin:20px;
+        margin:50px;
+        position: absolute;
+        animation: bounce 1s linear 0.5s 3 alternate forwards;
+        animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 
     .sticky{
@@ -15,5 +18,15 @@
 
         border-bottom: 2px solid black;
         margin:0 50px;
+    }
+}
+@keyframes bounce {
+    from{
+       left: 0;
+       transform: scale(1);
+
+    }
+    to{
+        transform: scale(1.5);
     }
 }

@@ -2,7 +2,6 @@ import { AnyAction } from "redux";
 import { PostType } from "../types";
 
 export const postsReducer = (state: any, action: AnyAction) => {
-  console.log(state);
   switch (action.type) {
     case "POST_LIST": {
       return { ...state, list: action.payload };

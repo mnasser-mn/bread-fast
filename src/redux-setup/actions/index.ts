@@ -18,7 +18,6 @@ export const getPosts = (keywords = "") => {
         payload,
       });
     } catch (err) {
-      console.log(err);
       dispatch({ type: "FETCH_ERROR" });
     }
   };
@@ -33,7 +32,6 @@ export const getPostDetails = (id: number) => {
         payload,
       });
     } catch (err) {
-      console.log(err);
       dispatch({ type: "FETCH_ERROR" });
     }
   };
@@ -42,7 +40,6 @@ export const getPostDetails = (id: number) => {
 export const patchPost = (post: PostType) => {
   return async (dispatch: any) => {
     const response = await axios.patch(`${baseURL}/${post.id}`, { ...post });
-    console.log(response);
     if (response.status === 200) {
       dispatch({ type: "EDIT_POST", payload: "Post Updated successfully!" });
     } else dispatch({ type: "EDIT_POST", payload: "Error, please try again!" });

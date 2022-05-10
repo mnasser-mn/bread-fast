@@ -18,7 +18,6 @@ export const Home = () => {
     }
   }, [dispatch]);
   const list = useSelector((state: StateType) => {
-    console.log(state);
     return state?.post.list;
   });
   const message = useSelector((state: StateType) => state?.post?.message)
